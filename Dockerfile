@@ -8,7 +8,7 @@ RUN apt-add-repository -y ppa:ondrej/php
 RUN apt-get update
 
 # SSH
-# Доступ через ssh потрібен лише для того, щоб через в PhpStorm
+# Доступ через ssh потрібен лише для того, щоб через PhpStorm
 # можна було запускати php-cli команди використовуючи php-інтерпритатор контейнера.
 RUN apt-get -y install openssh-server
 RUN apt-get -y install supervisor
