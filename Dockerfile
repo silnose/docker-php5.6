@@ -26,7 +26,7 @@ RUN apt-get -y --allow-unauthenticated install php-xdebug
 RUN apt-get -y install curl
 RUN apt-get -y install vim
 
-EXPOSE 22 #ssh
-EXPOSE 80 #apache2
+#Порти для: ssh apache2
+EXPOSE 22 80
 
 CMD ["/usr/bin/supervisord"]
