@@ -34,7 +34,7 @@ RUN sed -ri 's/^PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config
 RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
 RUN mkdir -p /var/run/sshd
 
-#Supervisor для запуску кількох демонів
+#Supervisor для запуску кількох процесів
 RUN apt-get -y install supervisor
 COPY config/supervisor/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 RUN mkdir -p /var/log/supervisor
