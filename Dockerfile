@@ -4,8 +4,10 @@ ENV REFRESHED_AT 2016-06-19
 
 RUN apt-get update
 RUN apt-get -y install software-properties-common
-RUN rm /etc/apt/sources.list.d/ondrej-php5-5_6-trusty.list
-RUN add-apt-repository -y ppa:ondrej/php
+RUN touch /etc/apt/sources.list.d/ondrej-php5.list
+RUN echo "deb http://ppa.launchpad.net/ondrej/php5/ubuntu trusty main" >> /etc/apt/sources.list.d/ondrej-php5.list
+RUN echo "deb-src http://ppa.launchpad.net/ondrej/php5/ubuntu trusty main" >> /etc/apt/sources.list.d/ondrej-php5.list
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4F4EA0AAE5267A6C
 RUN apt-get update
 
 RUN apt-get -y install apache2
@@ -16,7 +18,6 @@ RUN apt-get -y --allow-unauthenticated install php5.6-mysql
 RUN apt-get -y --allow-unauthenticated install php5.6-mcrypt
 RUN apt-get -y --allow-unauthenticated install php5.6-dev
 
-RUN apt-get update
 RUN apt-get -y --allow-unauthenticated install php5.6-xml
 
 RUN apt-get -y install curl
