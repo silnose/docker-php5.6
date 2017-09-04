@@ -13,8 +13,10 @@ RUN mkdir -p /var/lock/apache2 /var/run/apache2
 RUN apt-get -y --allow-unauthenticated install php5.6
 RUN apt-get -y --allow-unauthenticated install php5.6-mysql
 RUN apt-get -y --allow-unauthenticated install php5.6-mcrypt
-RUN apt-get -y --allow-unauthenticated install php5.6-xml
 RUN apt-get -y --allow-unauthenticated install php5.6-dev
+
+RUN apt-get update
+RUN apt-get -y --allow-unauthenticated install php5.6-xml
 
 RUN apt-get -y install curl
 RUN apt-get -y install nano
