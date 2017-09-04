@@ -1,14 +1,12 @@
 FROM ubuntu:16.04
 MAINTAINER Yarsoniy "yarsoniy@gmail.com"
 ENV REFRESHED_AT 2016-06-19
+ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get update
+RUN apt-get update -y
 RUN apt-get -y install software-properties-common
-RUN touch /etc/apt/sources.list.d/ondrej-php5.list
-RUN echo "deb http://ppa.launchpad.net/ondrej/php5/ubuntu trusty main" >> /etc/apt/sources.list.d/ondrej-php5.list
-RUN echo "deb-src http://ppa.launchpad.net/ondrej/php5/ubuntu trusty main" >> /etc/apt/sources.list.d/ondrej-php5.list
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4F4EA0AAE5267A6C
-RUN apt-get update
+RUN LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php
+RUN apt-get update -y
 
 RUN apt-get -y install apache2
 RUN mkdir -p /var/lock/apache2 /var/run/apache2
