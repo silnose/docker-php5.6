@@ -4,7 +4,8 @@ ENV REFRESHED_AT 2016-06-19
 
 RUN apt-get update
 RUN apt-get -y install software-properties-common
-RUN apt-add-repository -y ppa:ondrej/php
+RUN rm /etc/apt/sources.list.d/ondrej-php5-5_6-trusty.list
+RUN add-apt-repository -y ppa:ondrej/php
 RUN apt-get update
 
 RUN apt-get -y install apache2
