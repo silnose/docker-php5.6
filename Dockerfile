@@ -44,4 +44,10 @@ RUN mkdir -p /var/log/supervisor
 #Порти для: ssh apache2
 EXPOSE 22 80
 
+# Copy this repo into place.
+ADD www /var/www/html/proyect
+
+# Update the default apache site with the config we created.
+ADD apache-config.conf /etc/apache2/sites-enabled/000-default.conf
+
 CMD ["/usr/bin/supervisord"]
