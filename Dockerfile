@@ -17,9 +17,6 @@ RUN apt-get -y --allow-unauthenticated install php5.6-mcrypt
 RUN apt-get -y --allow-unauthenticated install php5.6-dev
 
 RUN apt-get -y --allow-unauthenticated install php5.6-xml
-
-RUN docker-php-ext-install pdo pdo_mysql
-
 RUN apt-get -y install curl
 RUN apt-get -y install nano
 
