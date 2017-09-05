@@ -45,7 +45,7 @@ RUN mkdir -p /var/log/supervisor
 EXPOSE 22 80
 
 # Copy this repo into place.
-ADD www /var/www/html/proyect
+RUN mkdir /var/www/html/proyect
 
 # Update the default apache site with the config we created.
 ADD apache-config.conf /etc/apache2/sites-enabled/000-default.conf
